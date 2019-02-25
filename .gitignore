@@ -1,0 +1,5 @@
+*.iml
+.idea/
+nifi-zonefile-record-serialization-service/target/
+nifi-zonefile-record-serialization-service-nar/target/
+target/
