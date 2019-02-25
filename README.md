@@ -1,5 +1,5 @@
 # nifi-zonefile-record-serialization-services
-A NiFi custom controller service to parse the contents of an RFC 1035 compliant zone file.'
+A NiFi custom controller service to parse the contents of an RFC 1035 compliant zone file.
 
 ## Getting Started
 
