@@ -36,7 +36,7 @@ public class TestZoneFileRecordReader {
     @Test
      public void testReadingZoneFile() {
         final InputStream in = getClass().getClassLoader().getResourceAsStream("com.zone");
-        final ZoneFileRecordReader reader = new ZoneFileRecordReader(in, true, true, true, true, true);
+        final ZoneFileRecordReader reader = new ZoneFileRecordReader(in);
         final Supplier<Stream<Record>> records = streamZoneFileContents(reader);
 
         assertThat(records.get().filter(r -> r.getAsString(ZoneFileSchema.TYPE_FIELD).equals(Type.string(Type.NS))).count(), equalTo(21L));
