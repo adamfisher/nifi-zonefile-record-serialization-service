@@ -18,21 +18,10 @@ package com.github.adamfisher.nifi.dns;
 
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
-import org.apache.nifi.controller.AbstractControllerService;
-import org.apache.nifi.logging.ComponentLog;
-import org.apache.nifi.schema.access.SchemaNotFoundException;
-import org.apache.nifi.serialization.MalformedRecordException;
-import org.apache.nifi.serialization.RecordReader;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+import org.apache.nifi.serialization.RecordReaderFactory;
 
 @Tags({"bind", "zone", "zone file", "parse", "record", "row", "reader", "delimited", "separated", "values"})
 @CapabilityDescription("Parses RFC 1035 compliant zone files.")
-public class ZoneFileReader extends AbstractControllerService implements ZoneFileRecordReaderFactory {
-    @Override
-    public RecordReader createRecordReader(Map<String, String> variables, InputStream in, ComponentLog logger) throws MalformedRecordException, IOException, SchemaNotFoundException {
-        return new ZoneFileRecordReader(in);
-    }
+public interface ZoneFileRecordReaderFactory extends RecordReaderFactory {
+
 }

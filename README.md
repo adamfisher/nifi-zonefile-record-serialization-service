@@ -8,15 +8,8 @@ This package exposes a **ZoneFileReader** controller service.
 Build the NAR file using:
 
 ```
-mvn install
+mvn clean install
 ```
 
 Place the NAR file inside your NiFi installation's `lib` directory.
 
-### Controller Properties
-
- - Include Name Field
- - Include TTL Field
- - Include Record Class Field
- - Include Record Type Field
- - Include Record Data Field

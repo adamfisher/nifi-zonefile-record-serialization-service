@@ -17,25 +17,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-nar-bundles</artifactId>
+        <groupId>com.github.adamfisher</groupId>
+        <artifactId>nifi-zonefile-record-serialization-services</artifactId>
         <version>1.9.0</version>
     </parent>
 
-    <groupId>com.github.adamfisher</groupId>
-    <artifactId>nifi-zonefile-record-serialization-services</artifactId>
+    <artifactId>nifi-zonefile-record-serialization-service-api-nar</artifactId>
     <version>1.9.0</version>
-    <packaging>pom</packaging>
-	
-	<properties>
-        <nifi.version>1.9.0</nifi.version>
+    <packaging>nar</packaging>
+    <properties>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <source.skip>true</source.skip>
     </properties>
 
-    <modules>
-        <module>nifi-zonefile-record-serialization-service-api</module>
-        <module>nifi-zonefile-record-serialization-service-api-nar</module>
-        <module>nifi-zonefile-record-serialization-service</module>
-        <module>nifi-zonefile-record-serialization-service-nar</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.nifi</groupId>
+            <artifactId>nifi-standard-services-api-nar</artifactId>
+            <version>1.9.0</version>
+            <type>nar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.adamfisher</groupId>
+            <artifactId>nifi-zonefile-record-serialization-service-api</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
