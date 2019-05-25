@@ -22,19 +22,23 @@ public class ZoneFileRecordReader implements RecordReader {
 
     @Override
     public Record nextRecord(final boolean coerceTypes, final boolean dropUnknownFields) throws IOException {
-        final org.xbill.DNS.Record zoneFileRecord = reader.nextRecord();
+        while(true) {
+            try {
+                final org.xbill.DNS.Record zoneFileRecord = reader.nextRecord();
 
-        if(zoneFileRecord != null) {
-            final Map<String, Object> fieldValues = new LinkedHashMap<>(5);
-            fieldValues.put(ZoneFileSchema.NAME_FIELD, zoneFileRecord.getName());
-            fieldValues.put(ZoneFileSchema.TTL_FIELD, zoneFileRecord.getTTL());
-            fieldValues.put(ZoneFileSchema.CLASS_FIELD, DClass.string(zoneFileRecord.getDClass()));
-            fieldValues.put(ZoneFileSchema.TYPE_FIELD, Type.string(zoneFileRecord.getType()));
-            fieldValues.put(ZoneFileSchema.DATA_FIELD, zoneFileRecord.rdataToString());
-            return new MapRecord(getSchema(), fieldValues);
+                if (zoneFileRecord != null) {
+                    final Map<String, Object> fieldValues = new LinkedHashMap<>(5);
+                    fieldValues.put(ZoneFileSchema.NAME_FIELD, zoneFileRecord.getName());
+                    fieldValues.put(ZoneFileSchema.TTL_FIELD, zoneFileRecord.getTTL());
+                    fieldValues.put(ZoneFileSchema.CLASS_FIELD, DClass.string(zoneFileRecord.getDClass()));
+                    fieldValues.put(ZoneFileSchema.TYPE_FIELD, Type.string(zoneFileRecord.getType()));
+                    fieldValues.put(ZoneFileSchema.DATA_FIELD, zoneFileRecord.rdataToString());
+                    return new MapRecord(getSchema(), fieldValues);
+                } else {
+                    return null;
+                }
+            } catch (Exception ex) { }
         }
-
-        return null;
     }
 
     @Override

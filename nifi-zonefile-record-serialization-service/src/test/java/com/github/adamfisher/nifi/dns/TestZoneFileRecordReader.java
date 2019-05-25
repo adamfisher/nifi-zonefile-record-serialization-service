@@ -34,7 +34,7 @@ import static org.hamcrest.CoreMatchers.*;
 public class TestZoneFileRecordReader {
 
     @Test
-     public void testReadingZoneFile() {
+     public void testReadingCOMZoneFile() {
         final InputStream in = getClass().getClassLoader().getResourceAsStream("com.zone");
         final ZoneFileRecordReader reader = new ZoneFileRecordReader(in);
         final Supplier<Stream<Record>> records = streamZoneFileContents(reader);
@@ -50,6 +50,25 @@ public class TestZoneFileRecordReader {
         assertThat(kitchenFloorTileNameServerRecords.stream().map(r -> r.getAsString(ZoneFileSchema.DATA_FIELD)).collect(Collectors.toList()),
                 hasItems("NS1.UNIREGISTRYMARKET.LINK.", "NS2.UNIREGISTRYMARKET.LINK."));
     }
+
+    @Test
+    public void testReadingBIZZoneFile() {
+        final InputStream in = getClass().getClassLoader().getResourceAsStream("biz.zone");
+        final ZoneFileRecordReader reader = new ZoneFileRecordReader(in);
+        final Supplier<Stream<Record>> records = streamZoneFileContents(reader);
+
+        assertThat(records.get().filter(r -> r.getAsString(ZoneFileSchema.TYPE_FIELD).equals(Type.string(Type.NS))).count(), equalTo(16L));
+
+        List<Record> nameServerRecords = records.get().filter(r ->
+                r.getAsString(ZoneFileSchema.TYPE_FIELD).equals(Type.string(Type.NS))
+                        && r.getAsString(ZoneFileSchema.NAME_FIELD).equals("4imhe2p.biz."))
+                .collect(Collectors.toList());
+
+        assertThat(nameServerRecords.size(), equalTo(2));
+        assertThat(nameServerRecords.stream().map(r -> r.getAsString(ZoneFileSchema.DATA_FIELD)).collect(Collectors.toList()),
+                hasItems("ns01.wd57ax1.com.", "ns02.wd57ax1.com."));
+    }
+
 
     private Supplier<Stream<Record>> streamZoneFileContents(ZoneFileRecordReader reader) {
         List<Record> list = new ArrayList<>();

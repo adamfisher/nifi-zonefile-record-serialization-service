@@ -1,0 +1,30 @@
+
+; <<>> DiG 9.11.2-AusReg-9.11.2-4.el6 <<>> -y hmac-md5 @stealth1 biz AXFR
+; (2 servers found)
+;; global options: +cmd
+biz.			900	IN	SOA	a.gtld.biz. hostmaster.neustar.biz. 1553302104 900 900 604800 86400
+biz.			518400	IN	NS	a.gtld.biz.
+biz.			518400	IN	NS	b.gtld.biz.
+biz.			518400	IN	NS	c.gtld.biz.
+biz.			518400	IN	NS	e.gtld.biz.
+biz.			518400	IN	NS	f.gtld.biz.
+biz.			518400	IN	NS	k.gtld.biz.
+4H-SOLUTIONS.biz.	7200	IN	NS	NS.123-REG.CO.UK.
+4H-SOLUTIONS.biz.	7200	IN	NS	NS2.123-REG.CO.UK.
+4h039a453.biz.		3600	IN	NS	ns1.rbe1.g-srv.net.
+monitor.reg.neustar.com. 0	ANY	TSIG	hmac-md5.sig-alg.reg.int. 1553302104 300 16 YWDHVhM3MpeTglOvyaj5fA== 27955 NOERROR 0 
+4h039a453.biz.		3600	IN	NS	ns2.rbe1.g-srv.net.
+4ime5kbmsz.biz.		3600	IN	NS	dns1.onamae.com.
+4ime5kbmsz.biz.		3600	IN	NS	dns2.onamae.com.
+monitor.reg.neustar.com. 0	ANY	TSIG	hmac-md5.sig-alg.reg.int. 1553302104 300 16 1btOLC06LCKZT7niuA8qTw== 27955 NOERROR 0 
+4imhe2p.biz.		3600	IN	NS	ns01.wd57ax1.com.
+4imhe2p.biz.		3600	IN	NS	ns02.wd57ax1.com.
+4IMPRINT.biz.		7200	IN	NS	NS13.WORLDNIC.COM.
+4IMPRINT.biz.		7200	IN	NS	NS14.WORLDNIC.COM.
+biz.			900	IN	SOA	a.gtld.biz. hostmaster.neustar.biz. 1553302104 900 900 604800 86400
+monitor.reg.neustar.com. 0	ANY	TSIG	hmac-md5.sig-alg.reg.int. 1553302142 300 16 oD1/aO4jh1PLnGLk9EEHKA== 27955 NOERROR 0 
+;; Query time: 37660 msec
+;; SERVER: 2610:a0:4:f::20#53(2610:a0:4:f::20)
+;; WHEN: Sat Mar 23 00:49:02 UTC 2019
+;; XFR size: 4957945 records (messages 11379, bytes 122604096)
+
