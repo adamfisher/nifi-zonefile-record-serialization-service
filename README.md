@@ -1,4 +1,6 @@
 # nifi-zonefile-record-serialization-services
+[![Build Status](https://dev.azure.com/adamfisher/public/_apis/build/status/nifi-zonefile-record-serialization-services?branchName=master)](https://dev.azure.com/adamfisher/public/_build/latest?definitionId=1&branchName=master)
+
 A NiFi custom controller service to parse the contents of an RFC 1035 compliant zone file.
 
 ## Getting Started
