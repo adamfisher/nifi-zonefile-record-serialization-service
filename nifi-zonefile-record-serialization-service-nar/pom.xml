@@ -19,11 +19,11 @@
     <parent>
         <groupId>com.github.adamfisher</groupId>
         <artifactId>nifi-zonefile-record-serialization-services</artifactId>
-        <version>1.9.0</version>
+        <version>1.9.2</version>
     </parent>
 
     <artifactId>nifi-zonefile-record-serialization-service-nar</artifactId>
-    <version>1.9.0</version>
+    <version>1.9.2</version>
     <packaging>nar</packaging>
     <properties>
         <maven.javadoc.skip>true</maven.javadoc.skip>
@@ -34,13 +34,13 @@
         <dependency>
             <groupId>com.github.adamfisher</groupId>
             <artifactId>nifi-zonefile-record-serialization-service-api-nar</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.2</version>
             <type>nar</type>
         </dependency>
         <dependency>
             <groupId>com.github.adamfisher</groupId>
             <artifactId>nifi-zonefile-record-serialization-service</artifactId>
-            <version>1.9.0</version>
+            <version>1.9.2</version>
         </dependency>
     </dependencies>
 
